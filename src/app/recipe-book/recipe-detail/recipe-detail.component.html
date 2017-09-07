@@ -1,10 +1,10 @@
-<div class="row">
+<div *ngIf="detailToShow" class="row">
   <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive">
+    <img src="{{ detailToShow.imagePath }}" alt="{{ detailToShow.name }}" class="img-responsive">
   </div>
 
   <div class="col-xs-12">
-    <h1>Recipe Name</h1>
+    <h1>{{ detailToShow.name }}</h1>
   </div>
 
   <div class="col-xs-12">
@@ -22,7 +22,7 @@
   </div>
 
   <div class="col-xs-12">
-    Description
+      {{ detailToShow.description }}
   </div>
 
   <div class="col-xs-12">
@@ -31,3 +31,6 @@
 
 </div>
 
+<div *ngIf="!detailToShow">
+  <p class="text-warning">Please, click on one Recipe to see its details.</p>
+</div>
