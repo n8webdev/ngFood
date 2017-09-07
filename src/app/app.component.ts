@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  pageToShow: string = 'recipe';
+
+  showShopping(data) {
+    this.pageToShow = data;
+    console.log(this.pageToShow);
+  }
+
+  showRecipes(data) {
+    this.pageToShow = data;
+    console.log(this.pageToShow);
+  }
+
 }
