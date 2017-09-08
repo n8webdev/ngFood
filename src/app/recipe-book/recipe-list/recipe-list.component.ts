@@ -1,3 +1,4 @@
+import { RecipeService } from './../recipe.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 // Model
@@ -12,14 +13,14 @@ export class RecipeListComponent implements OnInit {
 
   @Output() showDetail: EventEmitter<Recipe> = new EventEmitter();
 
-  recipes: Recipe[] = [
-    new Recipe('Alpha', 'This is just a test', 'http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-04.jpg'),
-    new Recipe('Beta', 'Just another test...', 'https://upload.wikimedia.org/wikipedia/commons/1/12/Recipes_cottage_cheese_pie_named_misa.jpg')
-  ];
+  recipes: Recipe[] = [];
 
-  constructor() { }
+  constructor(
+    private _recipeService: RecipeService
+  ) { }
 
   ngOnInit() {
+    this.recipes = this._recipeService.getRecipes();
   }
 
   getRecipeToShow(recipe: Recipe): void {
