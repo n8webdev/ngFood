@@ -11,12 +11,18 @@ export class ShoppingService {
 
   newIngredient = new EventEmitter<Ingredient[]>();
 
-  getIngredients() {
+  getIngredients(): Array<Ingredient> {
     return this.ingredients.slice();
   }
 
   addNew(data): void {
     this.ingredients.push(new Ingredient(data.name, data.amount));
+    this.newIngredient.emit(this.ingredients.slice());
+  }
+
+  addRecipeIngredients(data: Ingredient[]): void {
+    // console.log(...data);
+    this.ingredients.push(...data);
     this.newIngredient.emit(this.ingredients.slice());
   }
 

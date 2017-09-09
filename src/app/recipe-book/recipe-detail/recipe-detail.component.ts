@@ -1,3 +1,4 @@
+import { ShoppingService } from './../../shopping-list/shopping.service';
 import { RecipeService } from './../recipe.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../Recipe';
@@ -11,9 +12,13 @@ export class RecipeDetailComponent implements OnInit {
 
   @Input() recipe: Recipe;
 
-  constructor() { }
+  constructor(private _sl: ShoppingService) { }
 
   ngOnInit() {
+  }
+
+  addToCart() {
+    this._sl.addRecipeIngredients(this.recipe.ingredients);
   }
 
 }
