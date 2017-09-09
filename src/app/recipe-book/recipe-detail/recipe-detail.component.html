@@ -1,10 +1,10 @@
-<div *ngIf="detailToShow" class="row">
+<div *ngIf="recipe" class="row">
   <div class="col-xs-12">
-    <img src="{{ detailToShow.imagePath }}" alt="{{ detailToShow.name }}" class="img-responsive">
+    <img src="{{ recipe.imagePath }}" alt="{{ recipe.name }}" class="img-responsive">
   </div>
 
   <div class="col-xs-12">
-    <h1>{{ detailToShow.name }}</h1>
+    <h1>{{ recipe.name }}</h1>
   </div>
 
   <div class="col-xs-12">
@@ -14,7 +14,7 @@
       >Manage <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">Add</a></li>
+        <li><a href="#">Add to Shopping List</a></li>
         <li><a href="#">Edit</a></li>
         <li><a href="#">Delete</a></li>
       </ul>
@@ -22,15 +22,20 @@
   </div>
 
   <div class="col-xs-12">
-      {{ detailToShow.description }}
+      {{ recipe.description }}
   </div>
 
   <div class="col-xs-12">
-    Ingredients
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </li>
+    </ul>
   </div>
 
 </div>
 
-<div *ngIf="!detailToShow">
+<div *ngIf="!recipe">
   <p class="text-warning">Please, click on one Recipe to see its details.</p>
 </div>
