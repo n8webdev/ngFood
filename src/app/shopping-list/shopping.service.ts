@@ -11,10 +11,18 @@ export class ShoppingService {
   ];
 
   // newIngredient = new EventEmitter<Ingredient[]>();
+  // Subject is an Observer and Subscriber at the same time
+  // ... used here to emit the Ingredients list asynchronously
+
   newIngredient = new Subject<Ingredient[]>();
+  editIngredient = new Subject<number>();
 
   getIngredients(): Array<Ingredient> {
     return this.ingredients.slice();
+  }
+
+  getIngredient(index: number): Ingredient {
+    return this.ingredients[index];
   }
 
   addNew(data): void {
@@ -25,6 +33,11 @@ export class ShoppingService {
   addRecipeIngredients(data: Ingredient[]): void {
     // console.log(...data);
     this.ingredients.push(...data);
+    this.newIngredient.next(this.ingredients.slice());
+  }
+
+  updateIngredients(index: number, data: Ingredient): void {
+    this.ingredients[index] = data;
     this.newIngredient.next(this.ingredients.slice());
   }
 
