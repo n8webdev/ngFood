@@ -17,6 +17,10 @@ export class ShoppingService {
   newIngredient = new Subject<Ingredient[]>();
   editIngredient = new Subject<number>();
 
+  emitData(): void {
+    this.newIngredient.next(this.ingredients.slice());
+  }
+
   getIngredients(): Array<Ingredient> {
     return this.ingredients.slice();
   }
@@ -27,18 +31,22 @@ export class ShoppingService {
 
   addNew(data): void {
     this.ingredients.push(new Ingredient(data.name, data.amount));
-    this.newIngredient.next(this.ingredients.slice());
+    this.emitData();
   }
 
   addRecipeIngredients(data: Ingredient[]): void {
     // console.log(...data);
     this.ingredients.push(...data);
-    this.newIngredient.next(this.ingredients.slice());
   }
 
   updateIngredients(index: number, data: Ingredient): void {
     this.ingredients[index] = data;
-    this.newIngredient.next(this.ingredients.slice());
+    this.emitData();
+  }
+
+  deleteItem(index: number): void {
+    this.ingredients.splice(index, 1);
+    this.emitData();
   }
 
 }
