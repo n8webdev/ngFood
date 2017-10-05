@@ -30,7 +30,8 @@
           formArrayName="ingredients">
           <!-- DON'T forget to specify the parent component of the FormArray -->
           <!--                           getContorls handles the Abstract data type -->
-          <div *ngFor="let ingredient of getControls(); let i = index"
+          <div
+            *ngFor="let ingredient of getControls(); let i = index"
             [formGroupName]="i">
       <!--  [formGroupName]="i" here because each ingredient is a group
             which contains a 'name' and an 'amount'-->
@@ -52,6 +53,11 @@
         </div>
       </div>
     </form>
-    <pre>{{ recipeForm.value | json }}</pre>
+    <div class="col-md-12">
+      <button type="button" class="btn btn-success pull-right"
+        (click)="addIngredient()"
+        >Add Ingredient</button>
+    </div>
+    <pre style="margin-top: 60px">{{ recipeForm.value | json }}</pre>
   </div>
 </div>
