@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="btn btn-success">Save</div>
+    <div class="btn btn-success"
+      (click)="onSubmit()"
+      >Save
+    </div>
     <div class="btn btn-danger">Cancel</div>
   </div>
   <div class="col-md-12">
@@ -23,18 +26,28 @@
         </textarea>
         <!-- ingredients -->
         <label for="ingredients">Ingredients</label>
-        <div id="ingredients" class="row">
-          <!-- name -->
-          <div class="col-md-8">
-            <input type="text" class="form-control" placeholder="Ingredient">
-          </div>
-          <!-- amount -->
-          <div class="col-md-2">
-            <input type="number" class="form-control" placeholder="qty">
-          </div>
-          <!-- delete -->
-          <div class="col-md-2">
-            <button type="button" class="btn btn-danger">X</button>
+        <div id="ingredients" class="row"
+          formArrayName="ingredients">
+          <!-- DON'T forget to specify the parent component of the FormArray -->
+          <!--                           getContorls handles the Abstract data type -->
+          <div *ngFor="let ingredient of getControls(); let i = index"
+            [formGroupName]="i">
+      <!--  [formGroupName]="i" here because each ingredient is a group
+            which contains a 'name' and an 'amount'-->
+            <!-- name -->
+            <div class="col-md-8">
+              <input type="text" class="form-control" placeholder="Ingredient"
+                formControlName='name'>
+            </div>
+            <!-- amount -->
+            <div class="col-md-2">
+              <input type="number" class="form-control" placeholder="qty"
+                formControlName='amount'>
+            </div>
+            <!-- delete -->
+            <div class="col-md-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
           </div>
         </div>
       </div>
