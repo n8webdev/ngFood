@@ -19,10 +19,10 @@
           formControlName="name">
         <!-- imagePath -->
         <label for="imagePath">Image URL</label>
-        <input id="imagePath" class="form-control"
+        <input id="imagePath" class="form-control" #imagePath
           formControlName="imagePath">
         <!-- imagePreview -->
-        <img src="" alt="" class="img-responsive">
+        <img [src]="imagePath.value" alt="" class="img-responsive">
         <!-- Description -->
         <label for="description">Description</label>
         <textarea id="description" rows="5" class="form-control"
