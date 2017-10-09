@@ -18,4 +18,12 @@ export class DataStorageService {
       this._recipes.getRecipes()
     );
   }
+
+  getRecipes(): void {
+    // we don't need to return the data because we subscribe to it right here
+    this.http.get('https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json')
+      .subscribe(
+        (response: Response) => this._recipes.setRecipes(response.json())
+      );
+  }
 }

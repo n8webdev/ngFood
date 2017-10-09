@@ -33,4 +33,8 @@ export class NavbarComponent implements OnInit {
       );
   }
 
+  getData(): void {
+    this._dataStorage.getRecipes();
+  }
+
 }

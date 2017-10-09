@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
@@ -35,8 +36,13 @@ export class RecipeService implements OnInit {
     return this.recipes[id];
   }
 
-  getRecipes() {
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  setRecipes(recipes: Recipe[]): void {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   updateSubject(): void {
