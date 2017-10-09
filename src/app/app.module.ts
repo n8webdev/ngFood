@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { DataStorageService } from './shared/data-storage.service';
 import { RecipeService } from './recipe-book/recipe.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingService } from './shopping-list/shopping.service';
@@ -35,11 +37,13 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpModule,
     AppRoutingModule
   ],
   providers: [
     ShoppingService,
-    RecipeService
+    RecipeService,
+    DataStorageService
   ],
   bootstrap: [AppComponent]
 })
