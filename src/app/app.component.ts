@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -9,11 +10,14 @@ import * as firebase from 'firebase';
 
 export class AppComponent implements OnInit {
 
+  constructor(private _auth: AuthService) {}
+
   ngOnInit(): void {
     firebase.initializeApp({
       apiKey: 'AIzaSyCscvwiZhU6ISQ8vqI98RstS673jq3edEs',
       authDomain: 'lazy-test-cbd43.firebaseapp.com'
     });
+    console.log(localStorage.getItem('id_token'));
   }
   // pageToShow: string = 'recipe';
 
