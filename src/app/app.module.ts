@@ -7,6 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
+import { AuthService } from './auth/auth.service';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
@@ -45,7 +47,8 @@ import { SignupComponent } from './auth/signup/signup.component';
   providers: [
     ShoppingService,
     RecipeService,
-    DataStorageService
+    DataStorageService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
