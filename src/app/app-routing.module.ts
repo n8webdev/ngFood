@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   ] },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'signup', component: SignupComponent, data: { action: 'signup'} },
-  { path: 'signin', component: SignupComponent, data: { action: 'signin'} }
+  { path: 'login', component: SignupComponent, data: { action: 'login'} }
   // { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page not found :('} },
 ];
 

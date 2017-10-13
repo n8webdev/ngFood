@@ -1,7 +1,9 @@
-import { Response } from '@angular/http';
-import { DataStorageService } from './../shared/data-storage.service';
 // import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
+
+import { AuthService } from './../auth/auth.service';
+import { DataStorageService } from './../shared/data-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +15,10 @@ export class NavbarComponent implements OnInit {
   // @Output() recipeActive: EventEmitter<string> = new EventEmitter();
   // @Output() shoppingActive: EventEmitter<string> = new EventEmitter();
 
-  constructor(private _dataStorage: DataStorageService) { }
+  constructor(
+    private _auth: AuthService,
+    private _dataStorage: DataStorageService
+  ) { }
 
   ngOnInit() {
   }

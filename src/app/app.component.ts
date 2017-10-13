@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
       apiKey: 'AIzaSyCscvwiZhU6ISQ8vqI98RstS673jq3edEs',
       authDomain: 'lazy-test-cbd43.firebaseapp.com'
     });
-    console.log(localStorage.getItem('id_token'));
+    // console.log(localStorage.getItem('id_token'));
   }
   // pageToShow: string = 'recipe';
 
