@@ -18,6 +18,8 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
+  // TODO: add an optional parameter for redirecting user to a route
+  // he tried to access before logging in
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((response) => {

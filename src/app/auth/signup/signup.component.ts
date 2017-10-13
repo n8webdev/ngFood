@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
     this.route.data
     .subscribe(data => {
       this.action = data['action'];
-      data['action'] === 'signin' ? this.textToShow = 'Sign In' : this.textToShow = 'Sign Up';
+      data['action'] === 'login' ? this.textToShow = 'Log In' : this.textToShow = 'Sign Up';
     });
   }
 
