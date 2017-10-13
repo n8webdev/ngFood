@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   // @Output() shoppingActive: EventEmitter<string> = new EventEmitter();
 
   constructor(
-    private _auth: AuthService,
+    public _auth: AuthService,
     private _dataStorage: DataStorageService
   ) { }
 
