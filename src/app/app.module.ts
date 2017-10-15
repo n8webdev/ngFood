@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
-import { RecipesModule } from './recipe-book/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -29,7 +28,6 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RecipesModule,
     ShoppingListModule,
     SharedModule,
     AuthModule,
