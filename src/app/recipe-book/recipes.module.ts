@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { RecipesRoutingModule } from './recipes-routing.module';
 
+import { StartComponent } from './start/start.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
@@ -19,6 +20,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
     SharedModule
   ],
   declarations: [
+    StartComponent,
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,

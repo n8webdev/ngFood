@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
 import { RecipesModule } from './recipe-book/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
@@ -17,15 +18,10 @@ import { ShoppingService } from './shopping-list/shopping.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { StartComponent } from './recipe-book/start/start.component';
-import { SignupComponent } from './auth/signup/signup.component';
-
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    StartComponent,
-    SignupComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +30,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     RecipesModule,
     ShoppingListModule,
     SharedModule,
+    AuthModule,
     AppRoutingModule
   ],
   providers: [

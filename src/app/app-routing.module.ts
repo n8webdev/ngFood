@@ -12,16 +12,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent, children: [
-    { path: '', component: StartComponent },
-    { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService] },
-    { path: ':id', component: RecipeDetailComponent },
-    { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuardService]  }
-  ] },
-  { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'signup', component: SignupComponent, data: { action: 'signup'} },
-  { path: 'login', component: SignupComponent, data: { action: 'login'} }
-  // { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page not found :('} },
+  { path: 'shopping-list', component: ShoppingListComponent }
 ];
 
 @NgModule({
