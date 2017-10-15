@@ -1,10 +1,11 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesModule } from './recipe-book/recipes.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AuthService } from './auth/auth.service';
@@ -15,8 +16,7 @@ import { ShoppingService } from './shopping-list/shopping.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list/shopping-list.component';
-import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
+
 import { StartComponent } from './recipe-book/start/start.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
@@ -24,8 +24,6 @@ import { SignupComponent } from './auth/signup/signup.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ShoppingListComponent,
-    ShoppingListEditComponent,
     StartComponent,
     SignupComponent
   ],
@@ -34,6 +32,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     FormsModule,
     HttpModule,
     RecipesModule,
+    ShoppingListModule,
     SharedModule,
     AppRoutingModule
   ],
