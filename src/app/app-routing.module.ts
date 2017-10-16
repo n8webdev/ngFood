@@ -4,13 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from './auth/auth-guard.service';
 
 import { HomeComponent } from './home/home.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list/shopping-list.component';
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: '', component: HomeComponent },
   { path: 'recipes', loadChildren: './recipe-book/recipes.module#RecipesModule' },
-  { path: 'shopping-list', component: ShoppingListComponent }
+  { path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule' }
 ];
 
 @NgModule({

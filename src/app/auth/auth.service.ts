@@ -18,8 +18,7 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
-  // TODO: add an optional parameter for redirecting user to a route
-  // he tried to access before logging in
+  // TODO: redirect to original target url after logging in
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((response) => {
@@ -28,7 +27,7 @@ export class AuthService {
         firebase.auth().currentUser.getIdToken()
           .then(token => {
             this.token = token;
-            this.router.navigate(['/']);
+            this.router.navigate(['/recipes']);
           });
       })
       .catch(error => console.log(error.message));
