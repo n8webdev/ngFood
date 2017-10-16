@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
@@ -26,8 +25,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     CoreModule,
     SharedModule,
-    AuthModule,
-    AppRoutingModule
+    AuthModule
   ],
   providers: [
     ShoppingService,
