@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
   imports:[
     CommonModule,
     FormsModule,
+    HttpModule,
     AuthRoutingModule
   ],
   declarations: [
