@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   // { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: '', component: HomeComponent },
   { path: 'recipes', loadChildren: './recipe-book/recipes.module#RecipesModule' },
-  { path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule' }
+  { path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule', canLoad: [AuthGuardService] }
 ];
 
 @NgModule({
