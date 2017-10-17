@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
   saveData(): void {
     this._dataStorage.saveRecipes()
       .subscribe(
-        (response: HttpEvent<Object>) => console.log(HttpEventType.UploadProgress)
+        (response: HttpEvent<Object>) => console.log(HttpEventType)
       );
   }
 
