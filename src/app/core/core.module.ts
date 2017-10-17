@@ -7,8 +7,9 @@ import { SharedModule } from './../shared/shared.module';
 
 import { AuthGuardService } from './../auth/auth-guard.service';
 import { AuthService } from './../auth/auth.service';
-import { AuthInterceptor } from './../shared/auth.interceptor';
 import { DataStorageService } from './../shared/data-storage.service';
+import { AuthInterceptor } from './../shared/auth.interceptor';
+import { LoggingInterceptor } from './../shared/logging.interceptor';
 import { RecipeService } from './../recipe-book/recipe.service';
 import { ShoppingService } from './../shopping-list/shopping.service';
 
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     DataStorageService,
     AuthService,
     AuthGuardService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   exports: [
     NavbarComponent,
