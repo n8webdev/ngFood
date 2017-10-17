@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -26,10 +26,11 @@ export class DataStorageService implements OnInit {
     // Usually that's what we need to authenticate to a backend [123456789 would be a token]
     // const headers = new HttpHeaders().set('Authorization', 'Nathan 123456789');
     return this.http.put(
-      'https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?auth=' + token,
+      'https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json',
       this._recipes.getRecipes(), {
         observe: 'events',
         // headers: headers
+        params: new HttpParams().set('auth', token)
       }
     );
   }
@@ -37,7 +38,9 @@ export class DataStorageService implements OnInit {
   getRecipes(): void {
     const token = this._auth.getToken();
     // we don't need to return the data because we subscribe to it right here
-    this.http.get<Recipe[]>('https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?auth=' + token)
+    this.http.get<Recipe[]>('https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?', {
+      params: new HttpParams().set('auth', token)
+    })
       .map(
         (recipes) => {
           // make sure our response data has at least an empty array for Ingredients
