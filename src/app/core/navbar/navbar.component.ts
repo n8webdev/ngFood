@@ -1,4 +1,5 @@
 // import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
@@ -34,7 +35,7 @@ export class NavbarComponent implements OnInit {
   saveData(): void {
     this._dataStorage.saveRecipes()
       .subscribe(
-        (response: Response) => console.log(response)
+        (response: HttpEvent<Object>) => console.log(HttpEventType.UploadProgress)
       );
   }
 

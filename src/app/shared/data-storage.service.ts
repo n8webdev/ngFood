@@ -25,7 +25,9 @@ export class DataStorageService implements OnInit {
     const token = this._auth.getToken();
     return this.http.put(
       'https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?auth=' + token,
-      this._recipes.getRecipes()
+      this._recipes.getRecipes(), {
+        observe: 'events'
+      }
     );
   }
 
