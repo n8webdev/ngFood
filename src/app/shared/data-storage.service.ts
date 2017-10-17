@@ -22,7 +22,6 @@ export class DataStorageService implements OnInit {
   }
 
   saveRecipes() {
-    const token = this._auth.getToken();
     // Usually that's what we need to authenticate to a backend [123456789 would be a token]
     // const headers = new HttpHeaders().set('Authorization', 'Nathan 123456789');
     // return this.http.put(
@@ -33,24 +32,20 @@ export class DataStorageService implements OnInit {
     //     params: new HttpParams().set('auth', token)
     //   }
     // );
+    // Token and Headers will be set at the auth.interceptor
     const req = new HttpRequest(
       'PUT',
       'https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json',
-      this._recipes.getRecipes(),
-      {
-        reportProgress: true,
-        params: new HttpParams().set('auth', token)
-      }
+      this._recipes.getRecipes()
     );
     return this.http.request(req);
   }
 
   getRecipes(): void {
-    const token = this._auth.getToken();
+    // we'll get the token when we INTERCEPT (auth.intercept) the request
+    // const token = this._auth.getToken();
     // we don't need to return the data because we subscribe to it right here
-    this.http.get<Recipe[]>('https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?', {
-      params: new HttpParams().set('auth', token)
-    })
+    this.http.get<Recipe[]>('https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json')
       .map(
         (recipes) => {
           // make sure our response data has at least an empty array for Ingredients
