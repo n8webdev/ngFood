@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -23,10 +23,13 @@ export class DataStorageService implements OnInit {
 
   saveRecipes() {
     const token = this._auth.getToken();
+    // Usually that's what we need to authenticate to a backend [123456789 would be a token]
+    // const headers = new HttpHeaders().set('Authorization', 'Nathan 123456789');
     return this.http.put(
       'https://lazy-test-cbd43.firebaseio.com/ngfood/recipes.json?auth=' + token,
       this._recipes.getRecipes(), {
-        observe: 'events'
+        observe: 'events',
+        // headers: headers
       }
     );
   }
